@@ -1,27 +1,6 @@
 # iniciante-java-oo-2022
-Conteúdo e desafios do módulo Back-end - Java e Orientação a Objetos do Movimento Codar 2022
 
-# iniciante-java-oo-2021
-
-# Conteúdo
-
-[Plano de estudos](https://cursos.alura.com.br/backend-java-vnsueda-1622331668115-p164413) com cursos, artigos e vídeos com o conteúdo do módulo "Back-end - Java e Orientação a Objetos Básico"
-
-- [Java JRE e JDK: compile e execute o seu programa](https://www.alura.com.br/curso-online-java-primeiros-passos)
-- [Java OO: entendendo a Orientação a Objetos](https://www.alura.com.br/curso-online-java-introducao-orientacao-objetos)
-- [Java Polimorfismo: entenda herança e interfaces](https://www.alura.com.br/curso-online-java-heranca-interfaces-polimorfismo)
-- [O que são Enums no Java?](https://cursos.alura.com.br/extra/alura-mais/o-que-sao-enums-no-java--c81)
-- [O que são Anotações no Java?](https://cursos.alura.com.br/extra/alura-mais/o-que-sao-anotacoes-no-java--c131)
-- [Java Exceções: aprenda a criar, lançar e controlar exceções](https://www.alura.com.br/curso-online-java-excecoes)
-
-Conteúdo adicional
-
-- [W3 Schools - Java](https://www.w3schools.com/java/default.asp)
-- [Capturando entrada do usuário com Scanner](https://www.w3schools.com/java/java_user_input.asp)
-- [Exercism - Java](https://exercism.org/tracks/java/exercises)
-- [Organizando seu projeto](https://www.caelum.com.br/apostila-java-orientacao-objetos/pacotes-organizando-suas-classes-e-bibliotecas)
-
-# Desafio
+## Desafio
 
 Desafio do módulo "Back-end - Java e Orientação a Objetos Básico" do Movimento Codar 2022. Pratique Java e Orientação a Objetos construindo um sistema para gestão de um zoológico!
 
@@ -30,17 +9,18 @@ Desafio do módulo "Back-end - Java e Orientação a Objetos Básico" do Movimen
 - Instale o [Git](https://git-scm.com/).
 - Faça um fork desse projeto clicando no botão `Fork` no canto superior direito da página, conforme a imagem abaixo. 
 
-![Realizando o fork](https://docs.github.com/assets/images/help/repository/fork_button.jpg)
+<img src="https://docs.github.com/assets/images/help/repository/fork_button.png" alt="Realizando o fork" width="400" />
 
 - Acesse o fork que você criou e faça o clone para a sua máquina. Clique primeiro no botão `Code` e depois copie a URL. 
 
-<img src="https://docs.github.com/assets/images/help/repository/https-url-clone-cli.png" alt="Copiando a URL" width="40%"/>
+<img src="https://docs.github.com/assets/images/help/repository/https-url-clone-cli.png" alt="Copiando a URL" width="400" />
 
 - Realize o clone com o comando `git clone` + a URL copiada.
 
 - Abra o projeto na sua IDE ou editor de texto preferido. Se não tiver um recomendamos o [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/).
 
 ### Zoologia
+
 Zoologia é a ciência que estuda a vida animal. O estudo dos animais analisa as diferentes características, estruturas, forma do corpo, desenvolvimento, crescimento, reprodução, locomoção, e sistemas (digestório, respiratório, circulatório, excretor, nervoso e etc.), além da ecologia (interação do organismo com o meio) e evolução (surgimento e desaparecimento ou resquício de alguma estrutura ou característica).
 [Fonte](https://www.infoescola.com/biologia/zoologia/)
 
@@ -116,12 +96,3 @@ Regras:
 - Crie os arquivos e faça a organização do projeto conforme achar necessário.
 - A forma como irá demonstrar as informações e solicitar entrada do usuário poderá ser via console. Fique à vontade para fazer de outra forma se preferir.
 - O sistema não precisa manter as informações cadastradas ao ser reiniciado. No entanto, fique à vontade para manter os dados se quiser.
-
-
-## Submetendo a solução dos desafios
-
-Ao terminar crie um `Pull Request` com a sua solução. 
-
-Para isso clique em `Contribute` e `Open Pull Request`. Depois basta confirmar a operação. 
-
-<img src="https://user-images.githubusercontent.com/6104963/125391895-911cd300-e37b-11eb-90d9-5b92cd8e5445.PNG" alt="Criando PR" width="40%"/>
