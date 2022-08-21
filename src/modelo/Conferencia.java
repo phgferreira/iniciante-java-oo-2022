@@ -1,12 +1,12 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-public class Confererencia {
+public class Conferencia {
 
-	private Calendar dataEHoraMarcada;
+	private Date dataEHoraMarcada;
 	
 	private Organizador organizador;
 	
@@ -16,14 +16,14 @@ public class Confererencia {
 	
 	// ########### CONSTRUTORES ###########
 	
-	public Confererencia(Calendar dataEHoraMarcada, Organizador organizador) {
+	public Conferencia(Date dataEHoraMarcada, Organizador organizador) {
 		this.dataEHoraMarcada = dataEHoraMarcada;
 		this.organizador = organizador;
 	}
 	
-	public Confererencia(Calendar dataEHoraMarcada, Organizador organizador, Pessoa participante) {
+	public Conferencia(Date dataEHoraMarcada, Organizador organizador, List<Pessoa> participantes) {
 		this(dataEHoraMarcada, organizador);
-		this.participantes.add(participante);
+		this.participantes = participantes;
 	}
 	
 	// ########### PARTICIPANTES ###########
@@ -50,11 +50,11 @@ public class Confererencia {
 	
 	// ########### GETTERS E SETTERS ###########
 	
-	public Calendar getDataEHoraMarcada() {
+	public Date getDataEHoraMarcada() {
 		return dataEHoraMarcada;
 	}
 	
-	public void setDataEHoraMarcada(Calendar dataEHoraMarcada) {
+	public void setDataEHoraMarcada(Date dataEHoraMarcada) {
 		this.dataEHoraMarcada = dataEHoraMarcada;
 	}
 	
