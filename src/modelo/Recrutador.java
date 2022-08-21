@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.List;
 
-public class Recrutador extends Pessoa {
+public class Recrutador extends Pessoa implements Organizador {
 	
 	private List<Candidato> candidatos;
 	
@@ -30,6 +30,21 @@ public class Recrutador extends Pessoa {
 				return 0;
 		}
 		return nivelInteresse;
+	}
+
+	@Override
+	public void iniciaConferencia(Confererencia conferencia) {
+		conferencia.iniciaConferencia();
+	}
+
+	@Override
+	public void coordenaConferencia(Confererencia conferencia) {
+		
+	}
+
+	@Override
+	public void terminaConfererencia(Confererencia conferencia) {
+		conferencia.terminaConferencia();
 	}
 
 }

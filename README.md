@@ -11,8 +11,8 @@ A modelagem desse projeto segue o esboço feito no draw.io:
     - [x] Pessoa e Interesse
     - [x] Candidato
     - [x] Recrutador
-    - [ ] Organizador
-    - [ ] Entrevista e Conferencia
+    - [x] Organizador e Conferencia
+    - [ ] Entrevista
 - [ ] Construção das turmas;
 - [ ] Evolução dos módulos sem dúvidas;
 - [ ] Evolução dos módulos com dúvidas.
