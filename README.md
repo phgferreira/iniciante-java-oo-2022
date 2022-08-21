@@ -8,6 +8,10 @@ A modelagem desse projeto segue o esboço feito no draw.io:
 ## Etapas
 - [x] Esboço;
 - [ ] Recrutamento;
+    - [x] Pessoa e Interesse
+    - [ ] Candidato
+    - [ ] Recrutador e Organizador
+    - [ ] Entrevista e Conferencia
 - [ ] Construção das turmas;
 - [ ] Evolução dos módulos sem dúvidas;
 - [ ] Evolução dos módulos com dúvidas.
