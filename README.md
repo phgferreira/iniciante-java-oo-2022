@@ -9,7 +9,7 @@ A modelagem desse projeto segue o esboço feito no draw.io:
 - [x] Esboço;
 - [ ] Recrutamento;
     - [x] Pessoa e Interesse
-    - [ ] Candidato
+    - [x] Candidato
     - [ ] Recrutador e Organizador
     - [ ] Entrevista e Conferencia
 - [ ] Construção das turmas;
