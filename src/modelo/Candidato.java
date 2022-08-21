@@ -5,9 +5,8 @@ import java.util.List;
 public class Candidato extends Pessoa {
 
 	public Candidato(Pessoa pessoa) {
-		super(pessoa.getNome());
+		super(pessoa.getNome(), pessoa.getInteresses());
 		super.setConhecimento(pessoa.getConhecimento());
-		super.setInteresses(pessoa.getInteresses());
 	}
 	
 	public List<Interesse> apresentaCandidatura() {

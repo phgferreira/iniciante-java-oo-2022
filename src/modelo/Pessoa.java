@@ -1,16 +1,22 @@
 package modelo;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pessoa {
 
 	private String nome;
 	
-	private List<String> conhecimento;
+	private List<String> conhecimento = new ArrayList<>();
 	
 	private List<Interesse> interesses;
 	
-	public Pessoa(String nome) {
+	public Pessoa (String nome) {
 		this.nome = nome;
+	}
+	
+	public Pessoa(String nome, List<Interesse> interesses) {
+		this(nome);
+		this.interesses = interesses;
 	}
 	
 	public String getNome() {

@@ -1,14 +1,15 @@
 package modelo;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Recrutador extends Pessoa implements Organizador {
 	
-	private List<Candidato> candidatos;
+	private List<Candidato> candidatos = new ArrayList<Candidato>();
 	
-	private List<Entrevista> entrevistas;
+	private List<Entrevista> entrevistas = new ArrayList<Entrevista>();
 	
 	private List<Date> diasDisponiveis;
 
@@ -24,26 +25,37 @@ public class Recrutador extends Pessoa implements Organizador {
 			candidatos.add(candidato);
 		}
 	}
-	
-	public int verificaInteresseDaPessoa(Pessoa pessoa) {
-		int nivelInteresse = 0;
-		for (Interesse interesse : pessoa.getInteresses() ) {
-			if (interesse == Interesse.APRENDER || interesse == Interesse.DESENVOLVER_SISTEMA) {
-				nivelInteresse++;
-			}
-			if (interesse == Interesse.INTERESSES_RUINS)
-				return 0;
-		}
-		return nivelInteresse;
-	}
-	
+
 	public void agendaEntrevistas() {
 		for (Candidato candidato : this.candidatos) {
 			Entrevista entrevista = new Entrevista(getProximoDiaDisponivel(), this, candidato);
 			this.entrevistas.add(entrevista);
 		}
 	}
-
+	
+	public List<Aprendiz> realizaEntrevistas() {
+		List<Aprendiz> aprendizes = new ArrayList<Aprendiz>();
+		for (Candidato candidato : this.candidatos) {
+			int nivelInteresseNecessario = DadosAleatorios.geraInteressesRecrutadorProcura().size() / 2;
+			if (verificaNivelDeInteresseDaPessoa(candidato) > nivelInteresseNecessario) {
+				Aprendiz aprendiz = new Aprendiz(candidato);
+				aprendizes.add(aprendiz);
+			}
+		}
+		return aprendizes;
+	}
+	
+	private int verificaNivelDeInteresseDaPessoa(Pessoa pessoa) {
+		int nivelInteresse = 0;
+		for (Interesse interessePessoa : pessoa.getInteresses() ) {
+			for (Interesse interesseRecrutadorProcura : DadosAleatorios.geraInteressesRecrutadorProcura() )
+				if (interessePessoa == interesseRecrutadorProcura) {
+					nivelInteresse++;
+				}
+		}
+		return nivelInteresse;
+	}
+	
 	@Override
 	public void iniciaConferencia(Conferencia conferencia) {
 		conferencia.iniciaConferencia();
