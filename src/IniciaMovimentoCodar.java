@@ -40,6 +40,7 @@ public class IniciaMovimentoCodar {
 		for (Recrutador recrutador : recrutadores) {
 			aprendizes.addAll( recrutador.realizaEntrevistasAgendadas() );
 		}
+		System.out.println();
 		
 		
 		// Abertura da turma

@@ -45,22 +45,24 @@ public class Recrutador extends Pessoa {
 	public List<Aprendiz> realizaEntrevistasAgendadas() {
 		for (Entrevista entrevista : entrevistas) {
 			// Realiza cada entrevista agendada
-			System.out.println(entrevista.toString() + " INICIADA");
+			System.out.println("INICIADA " + entrevista.toString());
 			boolean aprovado = avaliaCandidato(entrevista.getCandidato());
-			System.out.println(entrevista.toString() + " TERMINADA");
+			System.out.println("TERMINADA " + entrevista.toString());
 			
 			// Se candidato foi aprovado insere como aprendiz na lista de aprendizes aprovados pelo recrutador
-			if (aprovado)
+			if (aprovado) {
 				this.aprendizes.add( new Aprendiz(entrevista.getCandidato()) );
+				System.out.println("Candidato " + entrevista.getCandidato().getNome() + " APROVADO por " + this.getNome());
+			} else
+				System.out.println("Candidato " + entrevista.getCandidato().getNome() + " REPROVADO por " + this.getNome());
 				
 		}
 		return this.aprendizes;
 	}
 	
 	public boolean avaliaCandidato(Candidato candidato) {
-		boolean avaliacao = new Random().nextBoolean();
-		System.out.println("Avaliação do candidato " + candidato.getNome() + " = " + avaliacao);
-		return avaliacao;
+		// Retorna um dado aletório e fictício
+		return new Random().nextBoolean();
 	}
 	// ######################################################
 	
