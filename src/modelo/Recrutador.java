@@ -1,7 +1,5 @@
+package modelo;
 import java.util.Random;
-
-import modelo.Candidato;
-import modelo.Pessoa;
 
 public class Recrutador extends Pessoa {
 

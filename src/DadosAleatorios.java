@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Candidato;
+import modelo.Recrutador;
 
 public class DadosAleatorios {
 
