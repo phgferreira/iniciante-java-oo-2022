@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Candidato;
@@ -8,7 +7,8 @@ public class IniciaMovimentoCodar {
 	public static void main(String[] args) {
 
 		// Processo seletivo
-		List<Candidato> candidatos = new ArrayList<Candidato>();
+		List<Candidato> candidatos = DadosAleatorios.geraListaDeCandidatos();
+		List<Recrutador> recrutadores = DadosAleatorios.geraListaDeRecrutador();
 		
 		// Abertura da turma
 		

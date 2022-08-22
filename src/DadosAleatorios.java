@@ -3,7 +3,7 @@ import java.util.List;
 
 import modelo.Candidato;
 
-public class DadosAleatórios {
+public class DadosAleatorios {
 
 	public static List<Candidato> geraListaDeCandidatos() {
 		List<Candidato> candidados = new ArrayList<Candidato>();
@@ -18,5 +18,12 @@ public class DadosAleatórios {
 		candidados.add(new Candidato("Sanuel"));
 		candidados.add(new Candidato("João Miguel"));
 		return candidados;
+	}
+	
+	public static List<Recrutador> geraListaDeRecrutador() {
+		List<Recrutador> recrutadores = new ArrayList<Recrutador>();
+		recrutadores.add(new Recrutador("Amanda Martinez"));
+		recrutadores.add(new Recrutador("Jessica Cestaro"));
+		return recrutadores;
 	}
 }
