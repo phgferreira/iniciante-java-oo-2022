@@ -1,26 +1,31 @@
 package modelo;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 public class Entrevista {
 
-	private Data dataEHora;
+	private Date dataEHora;
 	
 	private Recrutador recrutador;
 	
 	private Candidato candidato;
 
-	public Entrevista(Data dataEHora, Recrutador recrutador, Candidato candidato) {
+	public Entrevista(Date dataEHora, Recrutador recrutador, Candidato candidato) {
 		this.dataEHora = dataEHora;
 		this.recrutador = recrutador;
 		this.candidato = candidato;
 	}
+	
+	@Override
+	public String toString() {
+		return "Entrevista do " + recrutador.getNome() + " com o candidato " + candidato.getNome() + " marcado para " + dataEHora;
+	}
 
-	public Data getDataEHora() {
+	public Date getDataEHora() {
 		return dataEHora;
 	}
 
-	public void setDataEHora(Data dataEHora) {
+	public void setDataEHora(Date dataEHora) {
 		this.dataEHora = dataEHora;
 	}
 

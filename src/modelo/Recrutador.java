@@ -15,12 +15,23 @@ public class Recrutador extends Pessoa {
 		this(nome);
 	}
 	
+	public Entrevista agendaEntrevista(Candidato candidato) {
+		Entrevista entrevistaMarcada = new Entrevista(marcaNoDiaDisponivel(), this, candidato);
+		return entrevistaMarcada;
+	}
+	
+	private Date marcaNoDiaDisponivel() {
+		Date diaSelecionado = this.diasEHorariosDisponiveis.get(0);
+		this.diasEHorariosDisponiveis.remove(0);
+		return diaSelecionado;
+	}
+
 	public boolean avaliaCandidato(Candidato candidato) {
 		boolean avaliacao = new Random().nextBoolean();
 		System.out.println("Avaliação do candidato " + candidato.getNome() + " = " + avaliacao);
 		return avaliacao;
 	}
-
+	
 	public List<Date> getDiasEHorariosDisponiveis() {
 		return diasEHorariosDisponiveis;
 	}
