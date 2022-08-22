@@ -29,7 +29,9 @@ public class IniciaMovimentoCodar {
 					aprendiz.absorveConhecimento(conhecimento);
 				}
 			}
+			
 		}
+		System.out.println("Turma tem " + turma.getListaDuvias().size() + " duvidas");
 		
 	}
 }

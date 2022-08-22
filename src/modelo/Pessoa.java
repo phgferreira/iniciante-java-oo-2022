@@ -6,7 +6,9 @@ public class Pessoa {
 
 	private String nome;
 	
-	private List<String> conhecimento = new ArrayList<>();
+	private List<String> conhecimento = new ArrayList<String>();
+	
+	private List<String> duvidas = new ArrayList<String>();
 	
 	public Pessoa (String nome) {
 		this.nome = nome;
@@ -26,6 +28,14 @@ public class Pessoa {
 
 	public void setConhecimento(List<String> conhecimento) {
 		this.conhecimento = conhecimento;
+	}
+
+	public List<String> getDuvidas() {
+		return duvidas;
+	}
+
+	public void setDuvidas(List<String> duvidas) {
+		this.duvidas = duvidas;
 	}
 
 }

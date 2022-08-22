@@ -15,9 +15,18 @@ public class Turma {
 	
 	private Recrutador recrutador;
 	
+	private List<String> listaDuvias = new ArrayList<String>();
+	
 	public Turma(MentorLider lider, List<Aprendiz> aprendizes) {
 		this.lider = lider;
 		this.aprendizes = aprendizes;
+		// Ligação importante para o aprendiz poder lançar suas dúvidas na turma
+		realizaVinculoReversoDeAprendizes();
+	}
+	
+	private void realizaVinculoReversoDeAprendizes() {
+		for (Aprendiz aprendiz : this.aprendizes)
+			aprendiz.setTurma(this);
 	}
 	
 	public void liberaModulo(Modulo modulo) {
@@ -26,6 +35,10 @@ public class Turma {
 	
 	public int numeroUltimoModulo() {
 		return this.modulos.size();
+	}
+	
+	public void compartilhaDuvida(String duvida) {
+		this.listaDuvias.add(duvida);
 	}
 
 	public MentorLider getLider() {
@@ -66,6 +79,14 @@ public class Turma {
 
 	public void setRecrutador(Recrutador recrutador) {
 		this.recrutador = recrutador;
+	}
+
+	public List<String> getListaDuvias() {
+		return listaDuvias;
+	}
+
+	public void setListaDuvias(List<String> listaDuvias) {
+		this.listaDuvias = listaDuvias;
 	}
 	
 	
