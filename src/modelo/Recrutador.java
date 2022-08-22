@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Recrutador extends Pessoa implements Organizador {
 	
-	private List<Candidato> candidatos = new ArrayList<Candidato>();
+	private List<Aprendiz> aprendizes = new ArrayList<Aprendiz>();
 	
-	private List<Entrevista> entrevistas = new ArrayList<Entrevista>();
+	private List<Entrevista> entrevistasMarcadas = new ArrayList<Entrevista>();
 	
 	private List<Date> diasDisponiveis;
 
@@ -18,64 +18,32 @@ public class Recrutador extends Pessoa implements Organizador {
 		this.diasDisponiveis = DadosAleatorios.geraDiasEHorariosAleatorios();
 	}
 	
-	public void procuraCandidatos(List<Pessoa> pessoas) {
-		for (Pessoa pessoa : pessoas) {
-			// Transforma uma pessoa em um candiadato
-			Candidato candidato = new Candidato(pessoa);
-			candidatos.add(candidato);
-		}
-	}
-
-	public void agendaEntrevistas() {
-		for (Candidato candidato : this.candidatos) {
-			Entrevista entrevista = new Entrevista(getProximoDiaDisponivel(), this, candidato);
-			this.entrevistas.add(entrevista);
-		}
+	public void agendaEntrevista(Candidato candidato) {
+		Entrevista entrevista = new Entrevista(this, candidato, getProximoDiaDisponivel());
+		System.out.println("Entrevista marcada com " + candidato.getNome() + " no dia " + entrevista.getDataEHora());
+		this.entrevistasMarcadas.add(entrevista);
 	}
 	
-	public List<Aprendiz> realizaEntrevistas() {
-		List<Aprendiz> aprendizes = new ArrayList<Aprendiz>();
-		for (Candidato candidato : this.candidatos) {
-			int nivelInteresseNecessario = DadosAleatorios.geraInteressesRecrutadorProcura().size() / 2;
-			if (verificaNivelDeInteresseDaPessoa(candidato) > nivelInteresseNecessario) {
-				Aprendiz aprendiz = new Aprendiz(candidato);
-				aprendizes.add(aprendiz);
-			}
-		}
-		return aprendizes;
+	public List<Entrevista> getEntrevistasMarcadas() {
+		return entrevistasMarcadas;
 	}
 	
-	private int verificaNivelDeInteresseDaPessoa(Pessoa pessoa) {
-		int nivelInteresse = 0;
-		for (Interesse interessePessoa : pessoa.getInteresses() ) {
-			for (Interesse interesseRecrutadorProcura : DadosAleatorios.geraInteressesRecrutadorProcura() )
-				if (interessePessoa == interesseRecrutadorProcura) {
-					nivelInteresse++;
-				}
-		}
-		return nivelInteresse;
-	}
-	
-	@Override
-	public void iniciaConferencia(Conferencia conferencia) {
-		conferencia.iniciaConferencia();
-	}
-
-	@Override
-	public void coordenaConferencia(Conferencia conferencia) {
-		
-	}
-
-	@Override
-	public void terminaConfererencia(Conferencia conferencia) {
-		conferencia.terminaConferencia();
-	}
-	
+	// INSERIR EXCEPTION: SemDiaDisponivelException
 	private Date getProximoDiaDisponivel() {
-		Date diaSelecionado = this.diasDisponiveis.get(0);
-		this.diasDisponiveis.remove(0);
-		return diaSelecionado;
-		
+		if (this.diasDisponiveis.size() > 0) {
+			Date diaSelecionado = this.diasDisponiveis.get(0);
+			this.diasDisponiveis.remove(0);
+			return diaSelecionado;
+		}
+		return null;
+	}
+	
+	public void avaliaCandidato(Candidato candidato) {
+		boolean aprovado = candidato.apresentaCandidatura();
+		if (aprovado) {
+			aprendizes.add(new Aprendiz(candidato));
+			System.out.println("Candidato " + candidato.getNome() + " aprovado");
+		}
 	}
 
 }

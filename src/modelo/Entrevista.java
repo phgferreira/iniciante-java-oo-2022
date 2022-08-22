@@ -2,11 +2,22 @@ package modelo;
 
 import java.util.Date;
 
-public class Entrevista extends Conferencia {
+public class Entrevista extends Evento {
 
-	public Entrevista(Date dataEHoraMarcada, Recrutador recrutador, Candidato candidato) {
-		super(dataEHoraMarcada, recrutador);
-		super.adicionaParticipante(candidato);
+	private Recrutador recrutador;
+	
+	private Candidato candidato;
+	
+	public Entrevista(Recrutador recrutador, Candidato candidato, Date dataEHoraMarcada) {
+		super("Entrevista com " + candidato.getNome(), dataEHoraMarcada, recrutador);
+		this.recrutador = recrutador;
+		this.candidato = candidato;
+		super.getParticiipantes().add(candidato);
 	}
 
+	@Override
+	public void executa() {
+		recrutador.avaliaCandidato(candidato);
+	}
+	
 }

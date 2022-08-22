@@ -1,16 +1,15 @@
 package modelo;
 
-import java.util.List;
+import java.util.Random;
 
 public class Candidato extends Pessoa {
 
-	public Candidato(Pessoa pessoa) {
-		super(pessoa.getNome(), pessoa.getInteresses());
-		super.setConhecimento(pessoa.getConhecimento());
+	public Candidato(String nome) {
+		super(nome);
 	}
 	
-	public List<Interesse> apresentaCandidatura() {
-		return super.getInteresses();
+	public boolean apresentaCandidatura() {
+		return new Random().nextBoolean();
 	}
 
 }

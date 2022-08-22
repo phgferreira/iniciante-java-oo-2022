@@ -35,6 +35,10 @@ public class Conferencia {
 	public void removeParticipante(Pessoa pessoa) {
 		this.participantes.remove(pessoa);
 	}
+
+	public List<Pessoa> getParticipantes() {
+		return participantes;
+	}
 	
 	// ########### INICIA E TERMINA CONFERENCIA ########### 
 	
