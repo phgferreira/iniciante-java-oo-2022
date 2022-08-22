@@ -3,31 +3,28 @@ import java.util.List;
 import java.util.Random;
 
 import excessao.SemDiaDisponivelException;
+import modelo.Aprendiz;
 import modelo.Candidato;
-import modelo.Entrevista;
 import modelo.Recrutador;
 
 public class IniciaMovimentoCodar {
 
 	public static void main(String[] args) {
 
-		// Candidatos e Recrutadores
+		// CANDIDATOS E RECRUTADORES
 		List<Candidato> candidatos = DadosAleatorios.geraListaDeCandidatos();
 		List<Recrutador> recrutadores = DadosAleatorios.geraListaDeRecrutador();
 
-		// Agendamento de entrevistas
-		List<Entrevista> entrevistas = new ArrayList<Entrevista>();
+		// AGENDAMENTO DE ENTREVISTAS
 		for (int i = 0; i < candidatos.size(); i++) {
 
-			// Escolhe um recrutador ...
+			// Escolhe um recrutador ... 
 			int indiceDoRecrutadorEscolhido = new Random().nextInt( recrutadores.size() );
 			Recrutador recrutadorEscolhido = recrutadores.get( indiceDoRecrutadorEscolhido );
 
-			// ... e tenta fazer o agendamento ...
+			// ... e tenta fazer o agendamento
 			try {
-				Entrevista entrevistaMarcada = recrutadorEscolhido.agendaEntrevista(candidatos.get(i));
-				entrevistas.add(entrevistaMarcada);
-				System.out.println(entrevistaMarcada.toString());
+				recrutadorEscolhido.agendaEntrevista(candidatos.get(i));
 
 				// ... se não tiver dia disponível então remove recrutador da lista e continua o agendamento
 			} catch (SemDiaDisponivelException e) {
@@ -37,6 +34,13 @@ public class IniciaMovimentoCodar {
 				i--;
 			}
 		}
+		
+		// REALIZACAO DAS ENTREVISTAS COM A LISTA DE APRENDIZES PRONTA NO FINAL
+		List<Aprendiz> aprendizes = new ArrayList<Aprendiz>();
+		for (Recrutador recrutador : recrutadores) {
+			aprendizes.addAll( recrutador.realizaEntrevistasAgendadas() );
+		}
+		
 		
 		// Abertura da turma
 		

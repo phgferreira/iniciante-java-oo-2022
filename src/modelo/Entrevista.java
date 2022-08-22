@@ -9,7 +9,7 @@ public class Entrevista {
 	private Recrutador recrutador;
 	
 	private Candidato candidato;
-
+	
 	public Entrevista(Date dataEHora, Recrutador recrutador, Candidato candidato) {
 		this.dataEHora = dataEHora;
 		this.recrutador = recrutador;
