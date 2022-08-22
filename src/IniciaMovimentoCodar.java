@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Candidato;
+
 public class IniciaMovimentoCodar {
 
 	public static void main(String[] args) {
