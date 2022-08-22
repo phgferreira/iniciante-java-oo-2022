@@ -1,4 +1,5 @@
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -41,6 +42,8 @@ public class IniciaMovimentoCodar {
 				Mentor mentorDisponivel = turma.getMentores().get(new Random().nextInt(mentores.size()));
 				mentorDisponivel.tiraDuvida(duvida, turma);
 			}
+			
+			turma.setListaDuvias(new ArrayList<String>());
 		}
 		System.out.println("Duvidas da turma" + turma.getListaDuvias().size());
 	}

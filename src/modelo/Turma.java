@@ -42,7 +42,7 @@ public class Turma {
 	}
 	
 	public void compartilhaExplicacao(String explicacao) {
-		this.listaDuvias.remove(explicacao);
+		System.out.println("Compartilha explicação");
 	}
 
 	public MentorLider getLider() {
