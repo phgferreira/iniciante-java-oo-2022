@@ -19,5 +19,7 @@ public class IniciaMovimentoCodar {
 
 		Turma turma = new Turma(lider, processoSeletivo.getRecrutador().getAprendizes());
 		turma.setRecrutadores(recrutadoraHelena);
+		lider.passaOProximoModulo(turma);
+		
 	}
 }

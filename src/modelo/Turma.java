@@ -6,6 +6,8 @@ public class Turma {
 
 	private MentorLider lider;
 	
+	private List<Modulo> modulos;
+	
 	private List<Mentor> mentores;
 	
 	private List<Aprendiz> aprendizes;
@@ -15,6 +17,14 @@ public class Turma {
 	public Turma(MentorLider lider, List<Aprendiz> aprendizes) {
 		this.lider = lider;
 		this.aprendizes = aprendizes;
+	}
+	
+	public void liberaModulo(Modulo modulo) {
+		this.modulos.add(modulo);
+	}
+	
+	public int quantidadeModulosPassados() {
+		return this.modulos.size();
 	}
 
 	public MentorLider getLider() {
@@ -46,6 +56,14 @@ public class Turma {
 	}
 
 	public void setRecrutadores(Recrutador recrutador) {
+		this.recrutador = recrutador;
+	}
+
+	public Recrutador getRecrutador() {
+		return recrutador;
+	}
+
+	public void setRecrutador(Recrutador recrutador) {
 		this.recrutador = recrutador;
 	}
 	
