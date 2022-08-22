@@ -15,7 +15,7 @@ A modelagem desse projeto segue o esboço feito no draw.io:
     - [x] Entrevista
 - [x] Construção das turmas;
     - [x] Mentor Lider e Mentor
-- [ ] Evolução dos módulos sem dúvidas;
+- [x] Evolução dos módulos sem dúvidas;
     - [x] Passa o próximo módulo;
-    - [ ] Aprendizes absorvem aprendizado
+    - [x] Aprendizes absorvem aprendizado
 - [ ] Evolução dos módulos com dúvidas.

@@ -11,8 +11,12 @@ public class MentorLider extends Mentor {
 	}
 
 	public void passaOProximoModulo(Turma turma) {
-		int indiceProximoModulo = turma.quantidadeModulosPassados();
+		int indiceProximoModulo = turma.numeroUltimoModulo();
 		Modulo proximoModuloDaTurma = modulos.get(indiceProximoModulo);
 		turma.liberaModulo(proximoModuloDaTurma);
+	}
+	
+	public List<Modulo> getModulos() {
+		return modulos;
 	}
 }

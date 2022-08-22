@@ -1,12 +1,13 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
 
 	private MentorLider lider;
 	
-	private List<Modulo> modulos;
+	private List<Modulo> modulos = new ArrayList<Modulo>();
 	
 	private List<Mentor> mentores;
 	
@@ -23,7 +24,7 @@ public class Turma {
 		this.modulos.add(modulo);
 	}
 	
-	public int quantidadeModulosPassados() {
+	public int numeroUltimoModulo() {
 		return this.modulos.size();
 	}
 
