@@ -6,8 +6,8 @@ public class MentorLider extends Mentor {
 
 	private List<Modulo> modulos = DadosAleatorios.geraModulos();
 	
-	public MentorLider(String nome) {
-		super(nome);
+	public MentorLider(String nome, List<String> conhecimento) {
+		super(nome, conhecimento);
 	}
 
 	public void passaOProximoModulo(Turma turma) {

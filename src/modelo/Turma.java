@@ -40,6 +40,10 @@ public class Turma {
 	public void compartilhaDuvida(String duvida) {
 		this.listaDuvias.add(duvida);
 	}
+	
+	public void compartilhaExplicacao(String explicacao) {
+		this.listaDuvias.remove(explicacao);
+	}
 
 	public MentorLider getLider() {
 		return lider;

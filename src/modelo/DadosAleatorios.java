@@ -40,6 +40,27 @@ public class DadosAleatorios {
 		return dias;
 	}
 	
+	public static List<Mentor> geraMentores() {
+		
+		List<String> todoConhecimento = conhecimentoDeTodosOsModulos();
+		
+		List<Mentor> mentores = new ArrayList<Mentor>();
+		mentores.add(new Mentor("Gabriel", todoConhecimento));
+		mentores.add(new Mentor("Camila", todoConhecimento));
+		mentores.add(new Mentor("Eduardo Branquinho", todoConhecimento));
+		mentores.add(new Mentor("Portiolli", todoConhecimento));
+		return mentores;
+	}
+	
+	public static List<String> conhecimentoDeTodosOsModulos() {
+		List<String> todoConhecimento = new ArrayList<String>();
+		List<Modulo> modulos = geraModulos();
+		for (Modulo modulo : modulos)
+			for (String conhecimento : modulo.getConhecimento())
+				todoConhecimento.add(conhecimento); 
+		return todoConhecimento;
+	}
+	
 	public static List<Modulo> geraModulos() {
 		List<Modulo> modulos = new ArrayList<Modulo>();
 		
