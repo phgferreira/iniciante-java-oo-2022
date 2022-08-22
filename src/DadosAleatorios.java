@@ -1,4 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import modelo.Candidato;
@@ -23,8 +26,28 @@ public class DadosAleatorios {
 	
 	public static List<Recrutador> geraListaDeRecrutador() {
 		List<Recrutador> recrutadores = new ArrayList<Recrutador>();
-		recrutadores.add(new Recrutador("Amanda Martinez"));
-		recrutadores.add(new Recrutador("Jessica Cestaro"));
+		try {
+			recrutadores.add(new Recrutador("Amanda Martinez", geraListaDeDiasEHorariosDisponiveis("01/07/2022")));
+			recrutadores.add(new Recrutador("Jessica Cestaro", geraListaDeDiasEHorariosDisponiveis("02/07/2022")));
+		} catch (ParseException e) {
+			recrutadores.add(new Recrutador("Amanda Martinez"));
+			recrutadores.add(new Recrutador("Jessica Cestaro"));
+			e.printStackTrace();
+		}
 		return recrutadores;
+	}
+	
+	public static List<Date> geraListaDeDiasEHorariosDisponiveis(String dia) throws ParseException {
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		List<Date> dias = new ArrayList<Date>();
+		dias.add(format.parse(dia + " 08:00"));
+		dias.add(format.parse(dia + " 08:30"));
+		dias.add(format.parse(dia + " 09:00"));
+		dias.add(format.parse(dia + " 09:30"));
+		dias.add(format.parse(dia + " 10:00"));
+		dias.add(format.parse(dia + " 10:30"));
+		dias.add(format.parse(dia + " 11:00"));
+		dias.add(format.parse(dia + " 11:30"));
+		return dias;
 	}
 }
