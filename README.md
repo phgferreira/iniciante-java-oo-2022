@@ -13,6 +13,7 @@ A modelagem desse projeto segue o esboço feito no draw.io:
     - [x] Recrutador
     - [x] Organizador e Conferencia
     - [x] Entrevista
-- [ ] Construção das turmas;
+- [x] Construção das turmas;
+    - [x] Mentor Lider e Mentor
 - [ ] Evolução dos módulos sem dúvidas;
 - [ ] Evolução dos módulos com dúvidas.

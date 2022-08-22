@@ -28,11 +28,7 @@ public class ProcessoSeletivo {
 		}
 	}
 	
-	public Turma criaTurma() {
-		Turma turma = new Turma();
-		
-		// Cria a turma
-		
-		return turma;
+	public Recrutador getRecrutador() {
+		return recrutador;
 	}
 }

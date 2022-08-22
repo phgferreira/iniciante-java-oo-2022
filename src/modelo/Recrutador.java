@@ -45,5 +45,9 @@ public class Recrutador extends Pessoa implements Organizador {
 			System.out.println("Candidato " + candidato.getNome() + " aprovado");
 		}
 	}
+	
+	public List<Aprendiz> getAprendizes() {
+		return aprendizes;
+	}
 
 }
