@@ -3,6 +3,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import excessao.SemDiaDisponivelException;
+
 public class Recrutador extends Pessoa {
 
 	List<Date> diasEHorariosDisponiveis;
@@ -13,14 +15,20 @@ public class Recrutador extends Pessoa {
 	
 	public Recrutador(String nome, List<Date> diasEHorariosDisponiveis) {
 		this(nome);
+		this.diasEHorariosDisponiveis = diasEHorariosDisponiveis;
 	}
 	
-	public Entrevista agendaEntrevista(Candidato candidato) {
+	public Entrevista agendaEntrevista(Candidato candidato) throws SemDiaDisponivelException {
 		Entrevista entrevistaMarcada = new Entrevista(marcaNoDiaDisponivel(), this, candidato);
 		return entrevistaMarcada;
 	}
 	
-	private Date marcaNoDiaDisponivel() {
+	private Date marcaNoDiaDisponivel() throws SemDiaDisponivelException {
+		// Se não tiver dia disponível lança excessão
+		if (this.diasEHorariosDisponiveis.size() == 0) {
+			throw new SemDiaDisponivelException();
+		}
+		// Se tiver dia disponível retorna o próximo dia e remove da lista de dias disponíveis
 		Date diaSelecionado = this.diasEHorariosDisponiveis.get(0);
 		this.diasEHorariosDisponiveis.remove(0);
 		return diaSelecionado;
