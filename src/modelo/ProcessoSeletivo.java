@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import excessao.PoucosCandidatosAprovadosException;
 import excessao.ProcessoSeletivoException;
 import excessao.SemDiaDisponivelException;
 
@@ -15,20 +14,14 @@ public class ProcessoSeletivo {
 	private List<Aprendiz> aprendizes = new ArrayList<Aprendiz>();
 	
 	private boolean concluido = false;
-	private int minimoAprovados = 0;
 
 	public ProcessoSeletivo(List<Candidato> candidatos, List<Recrutador> recrutadores) {
 		this.candidatos = candidatos;
 		this.recrutadores = recrutadores;
 	}
 
-	public ProcessoSeletivo(List<Candidato> candidatos, List<Recrutador> recrutadores, int minimoAprovado) {
-		this.candidatos = candidatos;
-		this.recrutadores = recrutadores;
-		this.minimoAprovados = minimoAprovado;
-	}
-	
-	public void executa() throws PoucosCandidatosAprovadosException {
+	public void executa() {
+		
 		// AGENDAMENTO DE ENTREVISTAS
 		for (int i = 0; i < candidatos.size(); i++) {
 
@@ -53,9 +46,6 @@ public class ProcessoSeletivo {
 		for (Recrutador recrutador : recrutadores) {
 			this.aprendizes.addAll( recrutador.realizaEntrevistasAgendadas() );
 		}
-		
-		if (this.aprendizes.size() < this.minimoAprovados)
-			throw new PoucosCandidatosAprovadosException(this.minimoAprovados);
 		
 		// Depois de executado muda o status para concluído
 		concluido = true;

@@ -1,6 +1,5 @@
 import java.util.List;
 
-import excessao.PoucosCandidatosAprovadosException;
 import modelo.Aprendiz;
 import modelo.Candidato;
 import modelo.ProcessoSeletivo;
@@ -15,15 +14,8 @@ public class IniciaMovimentoCodar {
 		List<Candidato> candidatos = DadosAleatorios.geraListaDeCandidatos();
 		List<Recrutador> recrutadores = DadosAleatorios.geraListaDeRecrutador();
 		
-		ProcessoSeletivo processoSeletivo = new ProcessoSeletivo(candidatos, recrutadores, 10);
-		while (!processoSeletivo.isConcluido()) {
-			try {
-				processoSeletivo.executa();
-			} catch (PoucosCandidatosAprovadosException e) {
-				System.err.println(e.getMessage());
-				System.out.println("TENTANDO NOVAMENTE");
-			}
-		}
+		ProcessoSeletivo processoSeletivo = new ProcessoSeletivo(candidatos, recrutadores);
+		processoSeletivo.executa();
 		List<Aprendiz> aprendizes = processoSeletivo.getAprendizes();
 		System.out.println("Lista de aprendizes com " + aprendizes.size() + " participantes");
 		
