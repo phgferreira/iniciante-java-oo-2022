@@ -1,10 +1,8 @@
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-import excessao.SemDiaDisponivelException;
 import modelo.Aprendiz;
 import modelo.Candidato;
+import modelo.ProcessoSeletivo;
 import modelo.Recrutador;
 
 public class IniciaMovimentoCodar {
@@ -14,34 +12,11 @@ public class IniciaMovimentoCodar {
 		// CANDIDATOS E RECRUTADORES
 		List<Candidato> candidatos = DadosAleatorios.geraListaDeCandidatos();
 		List<Recrutador> recrutadores = DadosAleatorios.geraListaDeRecrutador();
-
-		// AGENDAMENTO DE ENTREVISTAS
-		for (int i = 0; i < candidatos.size(); i++) {
-
-			// Escolhe um recrutador ... 
-			int indiceDoRecrutadorEscolhido = new Random().nextInt( recrutadores.size() );
-			Recrutador recrutadorEscolhido = recrutadores.get( indiceDoRecrutadorEscolhido );
-
-			// ... e tenta fazer o agendamento
-			try {
-				recrutadorEscolhido.agendaEntrevista(candidatos.get(i));
-
-				// ... se não tiver dia disponível então remove recrutador da lista e continua o agendamento
-			} catch (SemDiaDisponivelException e) {
-				recrutadores.remove(indiceDoRecrutadorEscolhido);
-
-				// Volta o indice para o candidato que não conseguiu marcar tentar novamente
-				i--;
-			}
-		}
 		
-		// REALIZACAO DAS ENTREVISTAS COM A LISTA DE APRENDIZES PRONTA NO FINAL
-		List<Aprendiz> aprendizes = new ArrayList<Aprendiz>();
-		for (Recrutador recrutador : recrutadores) {
-			aprendizes.addAll( recrutador.realizaEntrevistasAgendadas() );
-		}
-		System.out.println();
-		
+		ProcessoSeletivo processoSeletivo = new ProcessoSeletivo(candidatos, recrutadores);
+		processoSeletivo.executa();
+		List<Aprendiz> aprendizes = processoSeletivo.getAprendizes();
+		System.out.println("Lista de aprendizes com " + aprendizes.size() + " participantes");
 		
 		// Abertura da turma
 		
