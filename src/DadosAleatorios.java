@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import modelo.Candidato;
+import modelo.Mentor;
+import modelo.MentorLider;
 import modelo.Recrutador;
 
 public class DadosAleatorios {
@@ -49,5 +51,18 @@ public class DadosAleatorios {
 		dias.add(format.parse(dia + " 11:00"));
 		dias.add(format.parse(dia + " 11:30"));
 		return dias;
+	}
+	
+	public static MentorLider geraMentorLider() {
+		MentorLider lider = new MentorLider("Vinicius Ueda");
+		return lider;
+	}
+	
+	public static List<Mentor> geraListaDeMentores() {
+		List<Mentor> mentores = new ArrayList<Mentor>();
+		mentores.add(new Mentor("Gabriel"));
+		mentores.add(new Mentor("Camila"));
+		mentores.add(new Mentor("Portiolli"));
+		return mentores;
 	}
 }

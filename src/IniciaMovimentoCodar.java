@@ -4,12 +4,13 @@ import modelo.Aprendiz;
 import modelo.Candidato;
 import modelo.ProcessoSeletivo;
 import modelo.Recrutador;
+import modelo.Turma;
 
 public class IniciaMovimentoCodar {
 
 	public static void main(String[] args) {
 
-		// CANDIDATOS E RECRUTADORES
+		// Etapa inicial => Processo seletivo
 		List<Candidato> candidatos = DadosAleatorios.geraListaDeCandidatos();
 		List<Recrutador> recrutadores = DadosAleatorios.geraListaDeRecrutador();
 		
@@ -18,7 +19,12 @@ public class IniciaMovimentoCodar {
 		List<Aprendiz> aprendizes = processoSeletivo.getAprendizes();
 		System.out.println("Lista de aprendizes com " + aprendizes.size() + " participantes");
 		
-		// Abertura da turma
+		// Constroi a turma
+		Turma turma = new Turma(DadosAleatorios.geraMentorLider(), aprendizes);
+		turma.setMentores(DadosAleatorios.geraListaDeMentores());
+		turma.setRecrutadores(recrutadores);
+		
+		turma.inicia();
 		
 		// Andamento da turma (loop de modulos)
 		
