@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Turma {
@@ -8,6 +9,8 @@ public class Turma {
 	List<Mentor> mentores;
 	List<Aprendiz> aprendizes;
 	List<Recrutador> recrutadores;
+	// Lista de módulos começa instanciado porém vazio porque com o passar do tempo serão adicionados módulos nessa lista
+	List<Modulo> modulos = new ArrayList<Modulo>();
 	
 	public Turma(MentorLider lider, List<Aprendiz> aprendizes) {
 		this.lider = lider;
@@ -16,6 +19,10 @@ public class Turma {
 	
 	public void inicia() {
 		System.out.println("Turma iniciada com mentor líder " + lider.getNome() + " e " + aprendizes.size() + " aprendizes");
+		
+		Modulo modulo = lider.liberaProximoModulo(this);
+		System.out.println("Passado módulo " + modulo.getTitulo() + " com " + modulo.getConteudo().size() + " conteudos");
+		
 	}
 
 	public MentorLider getLider() {
@@ -49,6 +56,13 @@ public class Turma {
 	public void setRecrutadores(List<Recrutador> recrutadores) {
 		this.recrutadores = recrutadores;
 	}
-	
+
+	public List<Modulo> getModulos() {
+		return modulos;
+	}
+
+	public void setModulos(List<Modulo> modulos) {
+		this.modulos = modulos;
+	}
 	
 }
