@@ -42,6 +42,8 @@ public class Turma {
 
 	public void setLider(MentorLider lider) {
 		this.lider = lider;
+		// Como o lider também é um mentor, ele é adicionado nessa lista
+		this.mentores.add(lider);
 	}
 
 	public List<Mentor> getMentores() {
