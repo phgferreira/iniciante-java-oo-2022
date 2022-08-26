@@ -1,7 +1,7 @@
 # iniciante-java-oo-2022
 
 ## Versão 2.0
-> Status: Em Desenvolvimento
+> Status: Concluído
 
 ### Breve descrição
 Nessa 2º versão não me apeguei ao desenho porque tive um pouco de dificuldade na versão e sim comecei programando a main e conforme a necessidade fui aprimorando, criando mais código ou modificando o menos possível.
