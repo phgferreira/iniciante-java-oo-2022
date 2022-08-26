@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Turma {
 
@@ -29,8 +30,32 @@ public class Turma {
 		}
 		
 		// Momento em que os aprendizes tiram as dúvidas
+		this.trocaDeConhecimento();
 		
+		for (Aprendiz aprendiz : this.aprendizes)
+			System.out.println("Aprendiz " + aprendiz.getNome() + " tem " + aprendiz.getDuvidas().size() + " dívidas");
+	}
+	
+	private void trocaDeConhecimento() {
+		// Reune todas as dúvidas em uma única lista
+		List<String> duvidas = new ArrayList<String>();
+		for (Aprendiz aprendiz : this.aprendizes)
+			for (String duvida : aprendiz.getDuvidas())
+				if (!duvidas.contains(duvida))
+					duvidas.add(duvida);
 		
+		// Para cada dúvida um mentor disponível vai tirar a dúvida para toda a turma
+		for (String duvida : duvidas) {
+			Mentor mentorDisponivel = this.mentores.get( new Random().nextInt(this.mentores.size()) );
+			System.out.println("Mentor " + mentorDisponivel.getNome() + " explica " + duvida + " para toda a turma");
+
+			// Se algum aprendiz tiver essa dúvida na turma então foi explicado
+			for (Aprendiz aprendiz : this.aprendizes)
+				if (aprendiz.getDuvidas().contains(duvida)) {
+					aprendiz.getDuvidas().remove(duvida);
+					System.out.println("Aprendiz " + aprendiz.getNome() + " não tem mais a dúvida " + duvida);
+				}
+		}
 	}
 
 	public MentorLider getLider() {
