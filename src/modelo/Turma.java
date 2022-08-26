@@ -22,9 +22,16 @@ public class Turma {
 		
 		Modulo modulo = lider.liberaProximoModulo(this);
 		
+		// Momento em que os aprendizes absorvem o conteúdo do modulo e transformam esse conteúdo em conhecimento próprio
 		for (Aprendiz aprendiz : this.aprendizes) {
 			aprendiz.absorveConhecimento(modulo.getConteudo());
 			System.out.println(aprendiz.getNome() + " adquiriu " + aprendiz.getConhecimento().size() + " de conhecimento e " + aprendiz.getDuvidas().size() + " de dúvidas");
+		}
+		
+		// Momento em que os aprendizes tiram as dúvidas
+		for (Aprendiz aprendiz : this.aprendizes) {
+			String duvida = aprendiz.compartilhaUmaDuvida();
+			System.out.println("Dúvida do " + aprendiz.getNome() + " é " + duvida);
 		}
 		
 	}
