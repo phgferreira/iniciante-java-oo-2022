@@ -21,7 +21,11 @@ public class Turma {
 		System.out.println("Turma iniciada com mentor líder " + lider.getNome() + " e " + aprendizes.size() + " aprendizes");
 		
 		Modulo modulo = lider.liberaProximoModulo(this);
-		System.out.println("Passado módulo " + modulo.getTitulo() + " com " + modulo.getConteudo().size() + " conteudos");
+		
+		for (Aprendiz aprendiz : this.aprendizes) {
+			aprendiz.absorveConhecimento(modulo.getConteudo());
+			System.out.println(aprendiz.getNome() + " adquiriu " + aprendiz.getConhecimento().size() + " de conhecimento e " + aprendiz.getDuvidas().size() + " de dúvidas");
+		}
 		
 	}
 
