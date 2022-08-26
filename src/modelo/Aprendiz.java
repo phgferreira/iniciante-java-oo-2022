@@ -25,11 +25,6 @@ public class Aprendiz extends Pessoa {
 		}
 	}
 	
-	// Retorna uma dúvida aleatória
-	public String compartilhaUmaDuvida() {
-		return this.duvidas.get( new Random().nextInt(this.duvidas.size()) );
-	}
-
 	public List<String> getConhecimento() {
 		return conhecimento;
 	}

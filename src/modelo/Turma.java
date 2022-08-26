@@ -29,10 +29,7 @@ public class Turma {
 		}
 		
 		// Momento em que os aprendizes tiram as dúvidas
-		for (Aprendiz aprendiz : this.aprendizes) {
-			String duvida = aprendiz.compartilhaUmaDuvida();
-			System.out.println("Dúvida do " + aprendiz.getNome() + " é " + duvida);
-		}
+		
 		
 	}
 
