@@ -56,6 +56,10 @@ public class DadosAleatorios {
 	
 	public static MentorLider geraMentorLider() {
 		MentorLider lider = new MentorLider("Vinicius Ueda", geraListaDeModulos());
+		// Mentor líder também define os desafios para cada módulo
+		lider.getModulos().get(0).setDesafio("Jogo da Velha", lider);
+		lider.getModulos().get(1).setDesafio("Primeira página web", lider);
+		lider.getModulos().get(2).setDesafio("Abstração do Movimento Codar", lider);
 		return lider;
 	}
 	

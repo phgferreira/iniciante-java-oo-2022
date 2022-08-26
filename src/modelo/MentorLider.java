@@ -37,5 +37,10 @@ public class MentorLider extends Mentor {
 		}
 		return null;
 	}
+	
+	public String lancaDesafio(Modulo modulo) {
+		// É enviado this como argumento porque o módulo só deve retornar o desafio para um MentorLider
+		return modulo.getDesafio(this);
+	}
 
 }

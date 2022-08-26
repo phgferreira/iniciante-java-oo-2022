@@ -31,9 +31,13 @@ public class Turma {
 		
 		// Momento em que os aprendizes tiram as dúvidas
 		this.trocaDeConhecimento();
-		
 		for (Aprendiz aprendiz : this.aprendizes)
 			System.out.println("Aprendiz " + aprendiz.getNome() + " tem " + aprendiz.getDuvidas().size() + " dívidas");
+		
+		// Realização do desafio
+		String desafio = lider.lancaDesafio(modulo);
+		System.out.println("Desafio " + desafio + " Lançado");
+		
 	}
 	
 	private void trocaDeConhecimento() {

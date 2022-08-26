@@ -7,6 +7,7 @@ public class Modulo {
 	private String titulo;
 	
 	private List<String> conteudo;
+	private String desafio;
 	
 	public Modulo(String titulo, List<String> conteudo) {
 		this.titulo = titulo;
@@ -27,6 +28,18 @@ public class Modulo {
 
 	public void setConteudo(List<String> conteudo) {
 		this.conteudo = conteudo;
+	}
+
+	public String getDesafio(MentorLider lider) {
+		// Eu sei que a lógica ficou meio redundânte mas o objetivo era mostrar que somente um líder pode pegar o desafio de um módulo
+		if (lider instanceof MentorLider)
+			return desafio;
+		return null;
+	}
+
+	public void setDesafio(String desafio, MentorLider lider) {
+		if (lider instanceof MentorLider)
+			this.desafio = desafio;
 	}
 
 }
