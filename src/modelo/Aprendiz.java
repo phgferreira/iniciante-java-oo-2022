@@ -25,6 +25,12 @@ public class Aprendiz extends Pessoa {
 		}
 	}
 	
+	public void resolveDesafio(String desafio) {
+		// O desafio aprimora o seu conhecimento
+		this.conhecimento.add(desafio);
+		System.out.println("Desafio " + desafio + " resolvido pelo " + this.getNome());
+	}
+	
 	public List<String> getConhecimento() {
 		return conhecimento;
 	}

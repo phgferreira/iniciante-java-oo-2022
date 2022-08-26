@@ -38,6 +38,9 @@ public class Turma {
 		String desafio = lider.lancaDesafio(modulo);
 		System.out.println("Desafio " + desafio + " Lançado");
 		
+		for (Aprendiz aprendiz : this.aprendizes)
+			aprendiz.resolveDesafio(desafio);
+		
 	}
 	
 	private void trocaDeConhecimento() {
