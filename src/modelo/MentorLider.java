@@ -32,7 +32,7 @@ public class MentorLider extends Mentor {
 			 * dessa forma é possível resolver problemas de conflitos de módulos na turma mesmo tendo alterado a lista de módulos
 			 * no decorrer do movimento codar
 			 */
-			if (!turma.getModulos().contains(modulo))
+			if (!turma.getModulosConcluidos().contains(modulo))
 				return modulo;
 		}
 		return null;

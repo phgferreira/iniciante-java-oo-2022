@@ -11,7 +11,7 @@ public class Turma {
 	List<Aprendiz> aprendizes;
 	List<Recrutador> recrutadores;
 	// Lista de módulos começa instanciado porém vazio porque com o passar do tempo serão adicionados módulos nessa lista
-	List<Modulo> modulos = new ArrayList<Modulo>();
+	List<Modulo> modulosConcluidos = new ArrayList<Modulo>();
 	
 	public Turma(MentorLider lider, List<Aprendiz> aprendizes) {
 		this.lider = lider;
@@ -21,26 +21,33 @@ public class Turma {
 	public void inicia() {
 		System.out.println("Turma iniciada com mentor líder " + lider.getNome() + " e " + aprendizes.size() + " aprendizes");
 		
-		Modulo modulo = lider.liberaProximoModulo(this);
-		
-		// Momento em que os aprendizes absorvem o conteúdo do modulo e transformam esse conteúdo em conhecimento próprio
-		for (Aprendiz aprendiz : this.aprendizes) {
-			aprendiz.absorveConhecimento(modulo.getConteudo());
-			System.out.println(aprendiz.getNome() + " adquiriu " + aprendiz.getConhecimento().size() + " de conhecimento e " + aprendiz.getDuvidas().size() + " de dúvidas");
+		// Cada loop é um ciclo por módulo
+		for (int i = 0; i < lider.getModulos().size(); i++) {
+			
+			Modulo modulo = lider.liberaProximoModulo(this);
+			System.out.println("Módulo " + modulo.getTitulo() + " iniciado");
+			
+			// Momento em que os aprendizes absorvem o conteúdo do modulo e transformam esse conteúdo em conhecimento próprio
+			for (Aprendiz aprendiz : this.aprendizes) {
+				aprendiz.absorveConhecimento(modulo.getConteudo());
+				System.out.println(aprendiz.getNome() + " adquiriu " + aprendiz.getConhecimento().size() + " de conhecimento e " + aprendiz.getDuvidas().size() + " de dúvidas");
+			}
+			
+			// Momento em que os aprendizes tiram as dúvidas
+			this.trocaDeConhecimento();
+			for (Aprendiz aprendiz : this.aprendizes)
+				System.out.println("Aprendiz " + aprendiz.getNome() + " tem " + aprendiz.getDuvidas().size() + " dívidas");
+			
+			// Realização do desafio
+			String desafio = lider.lancaDesafio(modulo);
+			System.out.println("Desafio " + desafio + " Lançado");
+	
+			for (Aprendiz aprendiz : this.aprendizes)
+				aprendiz.resolveDesafio(desafio);
+			
+			this.modulosConcluidos.add(modulo);
+			System.out.println("Módulo " + modulo.getTitulo() + " concluído");
 		}
-		
-		// Momento em que os aprendizes tiram as dúvidas
-		this.trocaDeConhecimento();
-		for (Aprendiz aprendiz : this.aprendizes)
-			System.out.println("Aprendiz " + aprendiz.getNome() + " tem " + aprendiz.getDuvidas().size() + " dívidas");
-		
-		// Realização do desafio
-		String desafio = lider.lancaDesafio(modulo);
-		System.out.println("Desafio " + desafio + " Lançado");
-		
-		for (Aprendiz aprendiz : this.aprendizes)
-			aprendiz.resolveDesafio(desafio);
-		
 	}
 	
 	private void trocaDeConhecimento() {
@@ -99,12 +106,12 @@ public class Turma {
 		this.recrutadores = recrutadores;
 	}
 
-	public List<Modulo> getModulos() {
-		return modulos;
+	public List<Modulo> getModulosConcluidos() {
+		return modulosConcluidos;
 	}
 
-	public void setModulos(List<Modulo> modulos) {
-		this.modulos = modulos;
+	public void setModulosConcluidos(List<Modulo> modulosConcluidos) {
+		this.modulosConcluidos = modulosConcluidos;
 	}
-	
+
 }
