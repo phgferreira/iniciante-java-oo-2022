@@ -48,6 +48,8 @@ public class Turma {
 			this.modulosConcluidos.add(modulo);
 			System.out.println("Módulo " + modulo.getTitulo() + " concluído");
 		}
+		
+		System.out.println("Todos os módulos foram concluídos");
 	}
 	
 	private void trocaDeConhecimento() {

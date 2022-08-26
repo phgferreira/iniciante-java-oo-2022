@@ -26,6 +26,8 @@ public class IniciaMovimentoCodar {
 		
 		turma.inicia();
 		
+		System.out.println("MOVIMENTO CODAR CONCLUÍDO");
+		
 		// Andamento da turma (loop de modulos)
 		
 		// Termina a turma
